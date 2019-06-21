@@ -6,6 +6,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
+import { BsDatepickerModule, ModalModule } from 'ngx-bootstrap';
+import { Ng5SliderModule } from 'ng5-slider';
 
 import { AppComponent } from './app.component';
 import { ProjectComponent } from './components/project/project.component';
@@ -28,10 +30,13 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
   imports: [
     BrowserModule,
     HttpModule,
+    BsDatepickerModule.forRoot(),
+    ModalModule.forRoot(),
     BrowserAnimationsModule,
     AppRoutingModule,
     ToastrModule.forRoot(),
-    FormsModule
+    FormsModule,
+    Ng5SliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
