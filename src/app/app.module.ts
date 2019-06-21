@@ -17,6 +17,8 @@ import { ViewTaskComponent } from './components/view-task/view-task.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,11 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     ModalModule.forRoot(),
     BrowserAnimationsModule,
     AppRoutingModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true
+    }),
     FormsModule,
     Ng5SliderModule
   ],

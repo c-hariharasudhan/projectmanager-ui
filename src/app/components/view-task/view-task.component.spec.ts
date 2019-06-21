@@ -1,4 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms'
+import { SearchFilterPipe } from '../../pipes/search-filter.pipe'
+import { ToastrModule } from 'ngx-toastr';
+
+import { HttpModule } from '@angular/http';
 
 import { ViewTaskComponent } from './view-task.component';
 
@@ -8,9 +13,12 @@ describe('ViewTaskComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ViewTaskComponent ]
+      imports: [FormsModule,
+        ToastrModule.forRoot(),
+        HttpModule],
+      declarations: [ViewTaskComponent, SearchFilterPipe]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
