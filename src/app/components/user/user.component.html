@@ -1,0 +1,67 @@
+<div class="panel panel-default">  
+  <div class="panel-body">
+    <div class="form-horizontal">
+      <div class="form-group required">
+        <label class="control-label col-sm-2" for="firstname">First Name:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="firstname" placeholder="Enter firstname" [(ngModel)]="userToCreate.FirstName">
+        </div>
+      </div>
+      <div class="form-group required">
+        <label class="control-label col-sm-2" for="lastname">Last Name:</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="lastname" placeholder="Enter lastname" [(ngModel)]="userToCreate.LastName">
+        </div>
+      </div>
+      <div class="form-group required">
+        <label class="control-label col-sm-2" for="empId">Employee ID:</label>
+        <div class="col-sm-5">
+          <input type="text" class="form-control" id="empId" placeholder="Enter employee id" [(ngModel)]="userToCreate.EmployeeId">
+        </div>
+      </div>
+      <div class=" pull-right">
+        <div class="col-sm-12">
+          <button class="btn btn-primary" (click)="addUser()">{{buttonText}}</button>
+          <button class="btn btn-default" style="margin-left:20px;" (click)="resetUser()">Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="panel panel-default">  
+  <div class="panel-body">
+    <div class="row" style="margin-bottom:15px">
+      <div class="col-sm-12">
+        <div class="col-sm-3" style="padding-left:0">
+          <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchText">
+        </div>
+        <div class="col-sm-9 text-right" style="padding-right:0">
+          <strong>Sort:</strong>
+          <button class="btn btn-default" (click)="sortUser(1)" style="margin-left:10px;">First Name
+            <span class="glyphicon" [ngClass]="{'glyphicon-arrow-up':isFirstNameAsc===true,
+            'glyphicon-arrow-down':isFirstNameAsc===false}"></span>
+          </button>
+          <button class="btn btn-default" (click)="sortUser(2)" style="margin-left:15px;">Last Name
+              <span class="glyphicon" [ngClass]="{'glyphicon-arrow-up':isLastNameAsc===true,
+            'glyphicon-arrow-down':isLastNameAsc===false}"></span>
+          </button>
+          <button class="btn btn-default" (click)="sortUser(3)" style="margin-left:15px;">Employee Id
+              <span class="glyphicon" [ngClass]="{'glyphicon-arrow-up':isEmpIdAsc===true,
+            'glyphicon-arrow-down':isEmpIdAsc===false}"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="flex-container" *ngFor="let user of users|searchFilter:{FirstName:searchText,LastName:searchText,EmployeeId:searchText}">
+      <ul class="list-group">
+        <li class="list-group-item">First Name: {{user.FirstName}}</li>
+        <li class="list-group-item">Last: Name: {{user.LastName}}</li>
+        <li class="list-group-item">Employee Id: {{user.EmployeeId}}</li>
+      </ul>
+      <div class="view-buttons">
+        <button class="btn btn-primary" (click)="editUser(user)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteUser(user)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

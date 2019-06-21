@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Response} from '@angular/http';
 import {Serviceerror} from '../models/serviceerror';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,7 @@ export class BaseService {
         }
     }
     public baseurl(): string {
-        return '';
+        return environment.apiBaseUrl;
     }
 
     protected handleError(error: any) {

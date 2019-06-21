@@ -29,4 +29,9 @@ export class UtilityService {
     //TODO : implement log4j
     console.log(msg);
   }
+
+  showSpinner(show : boolean){
+    document.getElementById('loading-div').style.display = show ? 'block' : 'none';
+  }
+
 }
