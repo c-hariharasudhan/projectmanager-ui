@@ -17,6 +17,7 @@ export class UserComponent implements OnInit {
   isFirstNameAsc: boolean;
   isLastNameAsc: boolean;
   isEmpIdAsc: boolean;
+  searchText: string;
 
   constructor(private userService : UserService, private utilityService : UtilityService) { 
     this.users = new Array<User>();
