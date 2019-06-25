@@ -22,7 +22,7 @@ export class ProjectService extends BaseService {
         .pipe(catchError(this.handleError));
 }
 addProject(project:Project): Observable<any> {
-    return this.http.post(super.baseurl() + 'api/project/add',project)
+    return this.http.post(super.baseurl() + 'api/project/save',project)
         .pipe(map((res: Response) => {
             const data = super.extractData(res);
             return data;
@@ -31,7 +31,7 @@ addProject(project:Project): Observable<any> {
 }
 
 updateProject(project:Project): Observable<any> {
-    return this.http.post(super.baseurl() + 'api/project/update',project)
+    return this.http.post(super.baseurl() + 'api/project/save',project)
         .pipe(map((res: Response) => {
             const data = super.extractData(res);
             return data;

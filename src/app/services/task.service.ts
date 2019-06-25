@@ -22,7 +22,7 @@ export class TaskService extends BaseService {
         .pipe(catchError(this.handleError));
 }
 addTask(task:Task): Observable<any> {
-    return this.http.post(super.baseurl() + 'api/task/add',task)
+    return this.http.post(super.baseurl() + 'api/task/save',task)
         .pipe(map((res: Response) => {
             const data = super.extractData(res);
             return data;
@@ -40,7 +40,7 @@ getAllTasksByProjectId(projectId:number):Observable<Task[]>{
 }
 
 updateTask(task:Task): Observable<any> {
-    return this.http.post(super.baseurl() + 'api/task/update',task)
+    return this.http.post(super.baseurl() + 'api/task/save',task)
         .pipe(map((res: Response) => {
             const data = super.extractData(res);
             return data;

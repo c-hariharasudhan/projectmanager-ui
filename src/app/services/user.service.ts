@@ -24,7 +24,7 @@ export class UserService extends BaseService {
   }
 
   addUser(user: User): Observable<any> {
-    return this.http.post(super.baseurl() + 'api/user/add', user)
+    return this.http.post(super.baseurl() + 'api/user/save', user)
       .pipe(map((res: Response) => {
         const data = super.extractData(res);
         return data;
@@ -33,7 +33,7 @@ export class UserService extends BaseService {
   }
 
   updateUser(user: User): Observable<any> {
-    return this.http.post(super.baseurl() + 'api/user/update', user)
+    return this.http.post(super.baseurl() + 'api/user/save', user)
       .pipe(map((res: Response) => {
         const data = super.extractData(res);
         return data;
