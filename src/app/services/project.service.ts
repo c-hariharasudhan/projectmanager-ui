@@ -40,7 +40,7 @@ updateProject(project:Project): Observable<any> {
 }
 
 deleteProject(project:Project): Observable<any> {
-    return this.http.post(super.baseurl() + 'api/project/delete',project)
+    return this.http.post(super.baseurl() + 'api/project/delete?projectId=' + project.ProjectId,project)
         .pipe(map((res: Response) => {
             const data = super.extractData(res);
             return data;

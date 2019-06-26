@@ -42,7 +42,7 @@ export class UserService extends BaseService {
   }
 
   deleteUser(user: User): Observable<any> {
-    return this.http.post(super.baseurl() + 'api/user/delete', user)
+    return this.http.post(super.baseurl() + 'api/user/delete?userId='+user.UserId, user)
       .pipe(map((res: Response) => {
         const data = super.extractData(res);
         return data;
