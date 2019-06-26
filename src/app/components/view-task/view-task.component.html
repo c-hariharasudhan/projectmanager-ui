@@ -56,8 +56,8 @@
             <td>{{task.StartDate|date:'shortDate'}}</td>
             <td>{{task.EndDate|date:'shortDate'}}</td>
             <td>
-              <button *ngIf="task.Status===0" class="btn btn-primary" (click)="editTask(task)">Edit</button>
-              <button *ngIf="task.Status===0" class="btn btn-danger" style="margin-left:15px;" (click)="deleteTask(task)">End Task</button>
+              <button *ngIf="task.Status" class="btn btn-primary" (click)="editTask(task)">Edit</button>
+              <button *ngIf="task.Status" class="btn btn-danger" style="margin-left:15px;" (click)="deleteTask(task)">End Task</button>
             </td>
           </tr>
         </tbody>

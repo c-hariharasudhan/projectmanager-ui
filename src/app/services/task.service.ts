@@ -49,7 +49,7 @@ updateTask(task:Task): Observable<any> {
 }
 
 deleteTask(task:Task): Observable<any> {
-    return this.http.post(super.baseurl() + 'api/task/delete',task)
+    return this.http.post(super.baseurl() + 'api/task/delete?taskId=' + task.TaskId,task)
         .pipe(map((res: Response) => {
             const data = super.extractData(res);
             return data;
